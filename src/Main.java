@@ -1,3 +1,4 @@
+import java.awt.desktop.SystemSleepEvent;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,8 +13,11 @@ public class Main {
         String choice = input.next();
         if (choice.equalsIgnoreCase("O")) {
             System.out.println(name + " has picked Odds! The computer will be Evens.");
-        } else {
+        } else if (choice.equalsIgnoreCase("E")){
             System.out.println(name + " has picked Evens! The computer will be Odds.");
+        } else {
+            System.out.println("Input not valid");
+            System.exit(001);
         }
         lineSeperator();
             // Play the game
@@ -29,21 +33,20 @@ public class Main {
         System.out.println(numOfFingers + "+" + computer + "=" + sum );
 
         boolean oddOrEven = sum % 2 == 0;
-        boolean userOddOrEven = numOfFingers % 2 == 0;
-        boolean compOddOrEven = computer % 2 == 0;
+
         if (oddOrEven == true) {
             System.out.println(sum +" is ...even!");
-            if (oddOrEven == userOddOrEven){
-                System.out.println("You won with an Even number!");
+            if (numOfFingers == 0 || numOfFingers == 2 || numOfFingers == 4){
+                System.out.println(name + "won! Your number was Even!");
             } else {
-                System.out.println("You lose!");
+                System.out.println(name + " lost! Your number was Odd!");
             }
         } else {
             System.out.println(sum + " is...odd!");
-            if (compOddOrEven) {
-                System.out.println("You lost with an Even num!");
+            if (numOfFingers == 0 || numOfFingers == 2 || numOfFingers == 4) {
+                System.out.println(name + " lost! Your number was Even!");
             } else {
-                System.out.println("You won!");
+                System.out.println(name + " won! Your number was Odd!");
             }
         }
         lineSeperator();
